@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Learn Node in 7 days</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'css/foundation.css' %}" >
+</head>
+<body>
+
+<nav class="top-bar" data-topbar role="navigation">
+	<ul class="title-area">
+		<li class="name">
+			<h1 id="name">Node.JS</h1>
+		</li>
+	</ul>
+
+ <nav>
+ <section class="top-bar-section">
+	<ul class="right ">
+
+<li><a href="/">Home</a></li>
+<li><a href="/page">add</a></li>
+<li><a href="/addUser">Register</a></li>
+
+
+
+			</ul>	
+		</section>
+	</nav> 
+</nav> <!-- End Nav -->
+
+<div class="row">
+	<h1 id ="welcome">Welcome to Node.js Start Up Guide</h1	<p></p>
+
+	<aside id="info" class="small-3 columns">
+		<ul>
+			<li>Search</li>
+			<input type="text">
+			<li>Step Up</li>
+			<li><a href="">install</a></li>
+			<li><a href="">Up and running</a></li>
+			<li><a href="">Connect to Database</a></li>
+			<li>Building your App</li>
+			<li><a href="">Routes</a></li>
+			<li><a href="">Modules</a></li>
+			<li><a href="">Depences</a></li>
+			<li><a href="">Api</a></li>
+
+		</ul>
+		
+	</aside>
+
+	<div class="small-8 columns">
+		<p>
+		So what exactly is the need of using JavaScript in the server? To make the concept of Node.js clear I would like to compare it with the ordinary server-side languages such as PHP. Node.js uses an event-based server execution procedure rather than the multithreaded execution in PHP.
+
+		To explain it further, we’ll be talking about the idea of what Node.js is along with some hosting provider suggestions and installation tips. Intermediate level knowledge of JavaScript, jQuery and Ajax are required, but we’ll also provide examples for you to understand the entire thing easier and even work on it, so let’s get to know more about Node.js!
+			
+		</p>
+	</div>
+<div class="row">
+	<div class="small-8 columns">
+
+
+
+	<p class="panel">
+	var http = require('http');<br />
+http.createServer(function (req, res) {<br />
+  res.writeHead(200, {'Content-Type': 'text/plain'});<br />
+  res.end('Hello Worldn');<br />
+}).listen(8080, 'APP_PRIVATE_IP_ADDRESS');<br />
+console.log('Server running at http://APP_PRIVATE_IP_ADDRESS:8080/');
+		
+	</p>
+
+		
+	</div>
+
+	<div id="urls" class="left small-2 columns">>
+		<a href="https://nodejs.org/download/">Download Node.js</a>
+		<a href="http://teknosains.com/i/making-a-modular-web-applications-with-nodejs-and-express">Start up Node.js with 
+		Express</a>
+	</div>
+
+</div>
+
+<div class="row">
+
+<p>
+	
+</p>
+	
+</div>
+
+
+</body>
+</html>
