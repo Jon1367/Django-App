@@ -6200,6 +6200,15 @@ th.hide-for-touch {
   th.show-for-print {
     display: table-cell !important; } }
     /* My Css */
+    .marginOne{
+
+      margin-left:20px !important;
+
+    }
+    .marginTwo{
+
+      margin-left:40px !important;
+    }
     #name{
 
       margin-left:10px;
@@ -6212,11 +6221,30 @@ th.hide-for-touch {
     #info{
       
     }
+    body{
+      background-color: #EEE9E9 !important;
+    }
     aside > ul > li{
 
       display: inline-block;
       float:left;
       clear:both;
     }
+    div[id="urls"] > li{
+
+      text-decoration: underline;
+      text-indent:80px;
+    }
+    div[class="small-8 large-centered columns"] > h1{
+      text-align:center;
+    }
+    div[class="small-10 large-centered columns"] > h2{
+        text-align:center;
+    }
+    div[class="small-12 large-centered columns"] > h3{
+
+      text-align: center;
+    }
+
 
 

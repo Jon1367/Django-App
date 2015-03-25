@@ -1,52 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Learn Node in 7 days</title>
-	{% load staticfiles %}
-	<link rel="stylesheet" href="{% static 'css/foundation.css' %}" >
-</head>
-<body>
 
-<nav class="top-bar" data-topbar role="navigation">
-	<ul class="title-area">
-		<li class="name">
-			<h1 id="name">Node.JS</h1>
-		</li>
-	</ul>
-
- <nav>
- <section class="top-bar-section">
-	<ul class="right ">
-
-<li><a href="/">Home</a></li>
-<li><a href="/page">add</a></li>
-<li><a href="/addUser">Register</a></li>
-
-
-
-			</ul>	
-		</section>
-	</nav> 
-</nav> <!-- End Nav -->
+{% include "header.html" %}
 
 <div class="row">
-	<h1 id ="welcome">Welcome to Node.js Start Up Guide</h1	<p></p>
+	<h1 id ="welcome">Welcome to Node.js Start Up Guide</h1>
+	<br>
 
 	<aside id="info" class="small-3 columns">
 		<ul>
 			<li>Search</li>
 			<input type="text">
 			<li>Step Up</li>
-			<li><a href="">install</a></li>
-			<li><a href="">Up and running</a></li>
-			<li><a href="">Connect to Database</a></li>
+			<li><a href="#install">install</a></li>
+			<li><a href="#run">Up and running</a></li>
+			<li><a href="#package">Package JSON</a></li>
+			<li><a href="#express">Getting Express</a></li>
 			<li>Building your App</li>
-			<li><a href="">Routes</a></li>
-			<li><a href="">Modules</a></li>
+			<li><a  href="/page#Routes">Routes</a></li>
+			<li><a href="/page#moduels">Modules</a></li>
 			<li><a href="">Depences</a></li>
 			<li><a href="">Api</a></li>
-
+			<li>DataBase</li>
+			<li><a href="/database#dbConfig">Connecting to Database</a></li>
+			<li><a href="/database#query">query Statements</a></li>
 		</ul>
 		
 	</aside>
@@ -59,40 +34,145 @@
 			
 		</p>
 	</div>
-<div class="row">
-	<div class="small-8 columns">
+			<div id="urls" class="small-8  small-push-2 large-centered columns">
+
+			<h3 id="#install">Links to Help you get started</h3>
+
+			<li><a href="https://nodejs.org/download/">Download Node.js</a></li>
+			<li><a href="https://nodejs.org/api/">Node.js Docs</a></li>
+			<li><a href="http://teknosains.com/i/making-a-modular-web-applications-with-nodejs-and-express">Start up Node.js with 
+			Express (video)</a></li>
+			<li><a href="https://github.com/strongloop/express">Node.js GitHub</a></li>
+		</div>
+	</div> <!-- End of First Row -->
 
 
-
-	<p class="panel">
-	var http = require('http');<br />
-http.createServer(function (req, res) {<br />
-  res.writeHead(200, {'Content-Type': 'text/plain'});<br />
-  res.end('Hello Worldn');<br />
-}).listen(8080, 'APP_PRIVATE_IP_ADDRESS');<br />
-console.log('Server running at http://APP_PRIVATE_IP_ADDRESS:8080/');
-		
-	</p>
-
-		
-	</div>
-
-	<div id="urls" class="left small-2 columns">>
-		<a href="https://nodejs.org/download/">Download Node.js</a>
-		<a href="http://teknosains.com/i/making-a-modular-web-applications-with-nodejs-and-express">Start up Node.js with 
-		Express</a>
-	</div>
-
-</div>
 
 <div class="row">
+		<div class="small-8 large-centered columns">
 
-<p>
+		<h1> Creating Folder Format</h1>
+
+		<p class="panel">
+		
+		__My APP <br/>
+			<span class="marginOne">-- Views</span> 
+			<br/>
+			<span class="marginTwo">-index.html or index.ejs</span>
+			<br/>
+			<span class="marginOne">-- Models</span>
+			<br/>
+			<span class="marginTwo">-models.js<br/></span>
+			<span class="marginOne">app.js</span>
+			 <br/>
+			<span class="marginOne">package.JSON</span>
+			<br/>
+			
+		</p>
+		<p> 
+		After downloading node.js create a folder structures that should be set up like the image above. Your Routes are going to be step up in the app.js. Your models are for all you calculating. Then  you got your templates in the views folder
+		</p>
+
+			
+		</div>
+
+
+</div><!-- End of Second Row -->
+<div class="row">
+		
+		<br/>
+		
+		<div class="small-10 large-centered columns">
+		<h2 id="json"> Setting Up JSON package</h2>
+
+			<p class="panel">
+			{<br />
+	  <span class="marginOne">&quot;name&quot;: &quot;Name Of app&quot;,</span> <br />
+	  <span class="marginOne">&quot;version&quot;: &quot;0.0.1&quot;,</span> <br />
+	  <span class="marginOne">&quot;description&quot;: &quot;demo application&quot;,</span> <br />
+	  <span class="marginOne">&quot;dependencies&quot;: { </span> <br />
+	  <span class="marginTwo">&quot;body-parser&quot;: &quot;^1.12.0&quot;,</span> <br />
+	  <span class="marginTwo">&quot;ejs&quot;: &quot;^2.3.1&quot;,</span> <br />
+	  <span class="marginTwo">&quot;express&quot;: &quot;^4.12.2&quot;,</span> <br />
+	  <span class="marginTwo">&quot;express-session&quot;: &quot;^1.10.3&quot;,</span> <br />
+	  <span class="marginTwo">&quot;jade&quot;: &quot;^1.9.2&quot;,</span> <br />
+	  <span class="marginTwo">&quot;mysql&quot;: &quot;^2.5.5&quot;,</span> <br />
+	  <span class="marginTwo">&quot;passport&quot;: &quot;^0.2.1&quot;,</span> <br />
+	  <span class="marginTwo">&quot;passport-facebook&quot;: &quot;^2.0.0&quot;,</span> <br />
+	  <span class="marginTwo">&quot;unirest&quot;: &quot;^0.4.0&quot;</span> <br />
+	 	<span class="marginOne"> } </span><br />
+		}
+
+			</p>
+			<p>
+				Next your going to want to step up the .JSON package. Witch is how you can get Depencey into your project. Think of depenceys like imports in python or includes in PHP.Those are my Depencyes in the next step i will show you how to install them. For now just create the .JSON package file with copy every but leave the dependecies section empty.
+			</p>
+		</div>
+
+</div><!-- End of Third Row -->
+
+<div class="row">
+
+		<div id="express" class="small-12 large-centered columns">
+		
+			<h3>installing Express js into our application</h3>
+			<br>
+		</div>
+
+		<div class="small-8 large-centered columns">
 	
-</p>
 	
-</div>
+		<p class="panel">
+		$ sudo npm install express --save
+			
+		</p>
+		<p> your going to want to cd to your root folder in your folder you created.From there type the conmand above into terminal. After its sucessfully installed check your package.json to check if was updated. check if it looks like the express in my <a href="#json">package.json</a> </p>
+
+		<a href="https://www.npmjs.com/package/express">Npm site to find more Dpenceys</a>
+
+		</div>
+</div><!-- End of Fourth Row -->
 
 
-</body>
+<div class="row">
+		<div class="small-12 large-centered columns">
+	
+		<h3>Setup up your first route</h3>
+
+			<div class="small-8 large-centered columns">
+			<p class="panel">
+			
+			var express = require('express')<br />
+			var app = express()<br />
+	 		<br />
+			app.get('/', function (req, res) {<br />
+	  		res.send('Hello World');  // See in Broswer<br />
+			})<br />
+	 		<br />
+			app.listen(3000) <br/>
+			console.log("hello"); // See in Termial
+			</p>
+			<p> Type this code in your node.js. This is setting up your routes with express. The app get grabs the get and url information          ( you can use app.post to grab the post)</p>
+
+			</div>
+		</div>
+
+	
+
+
+</div><!-- End of Fith Row -->
+<div class="row">
+<div class="small-12 large-centered columns">
+		<h3> Run Project</h3>
+		<div class="small-8 large-centered columns">
+		<p>Next your going to run your app to check it everything Running. you should go see the hello in terminal. if you go to localhost:3000 or what ever port or ip adress you used</p>
+		<p class="panel">
+		$ node app.js
+		</p><br>
+		<br>
+<a href="/page" class="right button radius">Next</a>
+		</div>
+	</div>
+</body><!-- End of sixth Row -->
+
 </html>

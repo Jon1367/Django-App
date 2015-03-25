@@ -1,0 +1,109 @@
+{% include "header.html" %}
+
+<div class="row">
+	<h1 id ="welcome">Welcome to Node.js Setup DataBase</h1>
+
+	<aside id="info" class="small-3 columns">
+		<ul>
+			<li>Search</li>
+			<input type="text">
+			<li>Step Up</li>
+			<li><a href="">install</a></li>
+			<li><a href="">Up and running</a></li>
+			<li><a href="">Package JSON</a></li>
+			<li><a href="">Getting Express</a></li>
+			<li>Building your App</li>
+			<li><a href="">Routes</a></li>
+			<li><a href="">Modules</a></li>
+			<li><a href="">Depences</a></li>
+			<li><a href="">Api</a></li>
+			<li>DataBase</li>
+			<li><a href="">Connecting to Database</a></li>
+			<li><a href="">query Statements</a></li>
+		</ul>
+		
+	</aside>
+
+	<div id="Routes" class="small-8  small-push-2 large-centered columns">
+	<h3> Next Were going to connect to Mysql Database</h3>
+		<p class="panel">
+
+var mysql      = require('mysql');<br />
+var connection = mysql.createConnection({<br />
+  host     : 'localhost',<br />
+  port     :  '8889',<br />
+  database : 'projectdb',<br />
+  user     : 'root',<br />
+  password : 'root',<br />
+  // connect to database <br>
+connection.connect(); <br>
+});
+		
+		</p>
+		
+	</div>
+	<p> this is a nesscary step to tell node.js where your templates are. Also your going to want to get ejs. to display information to the dom. You can also use jade. Once thats complete you can step up your first route</p>
+</div>
+
+<div class="row">
+		<div class="small-10 large-centered columns">
+
+		<h2> Rendering Templates in your App.js</h2>
+
+		<p class="panel">
+ 	connection.query('SELECT username from users where username = ? and password = ?',[name, password],function(err, rows) { <br>
+   		console.log("hello"); <br>
+   		console.log(rows);<br>
+
+	 });
+
+			
+		</p>
+
+		<p> Your folder structors should be set up like this. Your Routes are going to be step up in the app.js. Your models are for all you caculating.Of course you got your templates in the views folder. The port I am listening to is 8080</p>
+
+			
+		</div>
+
+
+</div><!-- End of Third Row -->
+<div class="row">
+		
+		<br/>
+		
+		<div class="small-10 large-centered columns">
+		<h2> Setting up the Modules</h2>
+
+			<p class="panel">
+
+			// Modules js <br>
+		exports.apiOne = function(a,b){ <br>
+			var total = 0; <br>
+			total = a + b; <br>
+			return total  <br>
+			};
+			</p>
+			<p></p>
+			<p class="panel">
+
+			// App js <br>
+			var api = require('./api.js'); <br>
+			app.get('/', function(req, res) { <br>
+
+    		res.render('./views/form'); <br>
+
+			}); <br>
+		
+			<p>
+				Next your going to want to step up the .JSON package. Witch is how you can get Depencey into your project. Think of depenceys like imports in python or includes in PHP.Those are my Depencyes in the next step i will show you how to install them. For now just create the .JSON package file with copy every but leave the dependecies section empty.
+			</p>
+			<br>
+
+			<a href="#" class="left button radius">Back</a>
+		</div>
+
+</div><!-- End of Third Row -->
+
+
+</body>
+</html>

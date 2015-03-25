@@ -11,5 +11,7 @@ urlpatterns = patterns('',
     url(r'^page/$', views.page, name='page'),
     # add User
     url(r'^addUser/$', views.addUser, name='addUser'),
+    url(r'^database/$', views.database, name='database'),
+
     #url(r'^admin/', include(admin.site.urls)),
 )

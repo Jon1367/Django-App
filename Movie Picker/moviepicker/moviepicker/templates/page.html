@@ -1,60 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Learn Node in 7 days</title>
-	{% load staticfiles %}
-	<link rel="stylesheet" href="{% static 'css/foundation.css' %}" >
-</head>
-<body>
-
-<nav class="top-bar" data-topbar role="navigation">
-	<ul class="title-area">
-		<li class="name">
-			<h1 id="name">Node.JS</h1>
-		</li>
-	</ul>
-
- <nav>
- <section class="top-bar-section">
-	<ul class="right ">
-
-<li><a href="/">Home</a></li>
-<li><a href="/page">add</a></li>
-
-
-			</ul>	
-		</section>
-	</nav> 
-</nav> <!-- End Nav -->
+{% include "header.html" %}
 
 <div class="row">
-	<h1 id ="welcome">Welcome to Node.js page 2</h1	<p></p>
+	<h1 id ="welcome">Welcome to Node.js Setup MVC</h1>
 
 	<aside id="info" class="small-3 columns">
 		<ul>
 			<li>Search</li>
 			<input type="text">
 			<li>Step Up</li>
-			<a href="">install</a>
-			<a href="">Connect to sever</a>
-			<a href="">Connect to Database</a>
-			<li>Building your App	</li>
-			<a href="">Routes</a>
-			<a href="">Modules</a>
-			<a href="">Depences</a>
+			<li><a href="">install</a></li>
+			<li><a href="">Up and running</a></li>
+			<li><a href="">Package JSON</a></li>
+			<li><a href="">Getting Express</a></li>
+			<li>Building your App</li>
+			<li><a href="">Routes</a></li>
+			<li><a href="">Modules</a></li>
+			<li><a href="">Depences</a></li>
+			<li><a href="">Api</a></li>
+			<li>DataBase</li>
+			<li><a href="">Connecting to Database</a></li>
+			<li><a href="">query Statements</a></li>
 		</ul>
 		
 	</aside>
 
-	<div class="small-8 columns">
-		<p>
-		So what exactly is the need of using JavaScript in the server? To make the concept of Node.js clear I would like to compare it with the ordinary server-side languages such as PHP. Node.js uses an event-based server execution procedure rather than the multithreaded execution in PHP.
+	<div id="Routes" class="small-8 columns">
+	<h3> Next Were going to setup the Templating</h3>
+		<p class="panel">
 
-		To explain it further, we’ll be talking about the idea of what Node.js is along with some hosting provider suggestions and installation tips. Intermediate level knowledge of JavaScript, jQuery and Ajax are required, but we’ll also provide examples for you to understand the entire thing easier and even work on it, so let’s get to know more about Node.js!
+		//App Sets<br />
+		app.set('views', __dirname);<br />
+		app.set('view engine', 'ejs');
+		
+		</p>
+		
+	</div>
+	<br>
+	<div class="small-8 columns">
+	<p> This is a necessary step to tell node.js where your templates are. Also you’re going to want to get embed.js (ejs) to display information to the dom. You can also use jade. The view engine tells node.js what to look for. Once that’s complete you can step up your first route</p>
+	</div>
+</div>
+
+<div class="row">
+		<div class="small-10 large-centered columns">
+
+		<h2> Rendering Templates in your App.js</h2>
+
+		<p class="panel">
+		// Includes <br>	
+		var express = require('express'); <br>
+		var app = express(); <br>
+		var http = require('http'); <br>
+		var path = require('path'); <br>
+		var ejs = require('ejs'); <br>
+		<br>
+
+		//App Sets <br>
+		app.set('views', __dirname); <br>
+		app.set('view engine', 'ejs'); <br>
+		<br>
+		
+		// Routes <br>
+		app.get('/login', function(req, res) {<br/>
+    	res.render('./views/form');<br/>
+		}); <br>
+		<br>
+
+		app.listen(8080); <br>
+		console.log("Listening on port 8080"); <br>
+
 			
 		</p>
-	</div>
+
+		<p> To render a template in node.js you’ll need to first use the app.get that we use previous. This time instead of using res.send(‘ hello’) your going to use res.render to render a template of your choice. Ex. res.render('./views/form');. go to localhost:8080/login to view your template. </p>
+
+			
+		</div>
+
+
+</div><!-- End of Third Row -->
+<div class="row">
+		
+		<br/>
+		
+		<div class="small-10 large-centered columns">
+		<h2> Setting up the Modules</h2>
+
+			<p class="panel">
+
+			// Modules js <br>
+		exports.apiOne = function(a,b){ <br>
+			var total = 0; <br>
+			total = a + b; <br>
+			return total  <br>
+			};
+			</p>
+			<p></p>
+			<p class="panel">
+			// App Js <br>
+var mod = require('./modules/modules.js'); <br />
+<br />
+app.get('/', function (req, res) {<br />
+<br />
+var a = 2;<br />
+var b =3;<br />
+<br />
+var add = mod.add(a,b);<br />
+console.log(add);<br />
+<br />
+});<br />
+
+			<p>
+				Next your going to want to step up the .JSON package. Witch is how you can get Depencey into your project. Think of depenceys like imports in python or includes in PHP.Those are my Depencyes in the next step i will show you how to install them. For now just create the .JSON package file with copy every but leave the dependecies section empty.
+			</p>
+			<br>
+
+			<a href="/" class="left button radius">Back</a>
+			<a href="/database" class="right button radius">Next</a>
+
+		</div>
+
+</div><!-- End of Third Row -->
 
 
 </body>
